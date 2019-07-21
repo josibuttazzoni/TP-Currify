@@ -30,7 +30,10 @@ idMatchs id song = id == song.id
 
 -- Debería darnos las canciones que tengan ese texto en nombre o artista
 filterByName : String -> List Song -> List Song
-filterByName text songs = songs
+filterByName text = filter(textMatchs text)
+
+textMatchs : String -> Song -> Bool
+textMatchs text song = (contains (toUpper text) (toUpper song.name)) || (contains (toUpper text) (toUpper song.artist))
 
 -- Recibe un id y tiene que likear/dislikear una cancion
 -- switchear song.liked
