@@ -20,7 +20,7 @@ import Models exposing (Model)
 
 -- Debería darnos la url de la cancion en base al id
 urlById : String -> List Song -> String
-urlById id songs = ""
+urlById id songs = (findById id songs).url
 
 -- Debería darnos las canciones que tengan ese texto en nombre o artista
 filterByName : String -> List Song -> List Song
