@@ -66,7 +66,7 @@ filterLiked = filter(isLiked)
 -- Agrega una cancion a la cola de reproduccion
 -- (NO es necesario preocuparse porque este una sola vez)
 addSongToQueue : Song -> List Song -> List Song
-addSongToQueue song queue = queue
+addSongToQueue song queue = queue ++ [song]
 
 -- Saca una cancion de la cola
 -- (NO es necesario que se elimine una sola vez si esta repetida)
