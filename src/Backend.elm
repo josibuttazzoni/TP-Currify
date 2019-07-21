@@ -38,7 +38,19 @@ textMatchs text song = (contains (toUpper text) (toUpper song.name)) || (contain
 -- Recibe un id y tiene que likear/dislikear una cancion
 -- switchear song.liked
 toggleLike : String -> List Song -> List Song
-toggleLike id songs = songs
+toggleLike id songs = map(likeById id) songs
+
+likeById : String -> Song -> Song
+likeById id song = if idMatchs id song then swapeLike song else song
+
+swapeLike : Song -> Song
+swapeLike song = if song.liked then dislike song else like song
+
+like : Song -> Song
+like song = {song | liked = True}
+
+dislike : Song -> Song
+dislike song = {song | liked = False}
 
 -- Esta funcion tiene que decir si una cancion tiene
 -- nuestro like o no, por ahora funciona mal...
