@@ -56,7 +56,7 @@ dislike song = {song | liked = False}
 -- nuestro like o no, por ahora funciona mal...
 -- hay que arreglarla
 isLiked : Song  -> Bool
-isLiked song = False
+isLiked song = song.liked
 
 -- Recibe una lista de canciones y nos quedamos solo con las que
 -- tienen un like
