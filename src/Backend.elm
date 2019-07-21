@@ -22,6 +22,12 @@ import Models exposing (Model)
 urlById : String -> List Song -> String
 urlById id songs = (findById id songs).url
 
+findById : String -> List Song -> Song
+findById id = findSong(idMatchs id)
+
+idMatchs : String -> Song -> Bool
+idMatchs id song = id == song.id
+
 -- Debería darnos las canciones que tengan ese texto en nombre o artista
 filterByName : String -> List Song -> List Song
 filterByName text songs = songs
