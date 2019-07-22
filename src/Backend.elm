@@ -75,7 +75,10 @@ removeSongFromQueue id = filter(not<<idMatchs id)
 
 -- Hace que se reproduzca la canción que sigue y la saca de la cola
 playNextFromQueue : Model -> Model
-playNextFromQueue model = playSong (model) (idFirst model.queue)
+playNextFromQueue model = playSong (removeHeadFromQueue model) (idFirst model.queue)
+
+removeHeadFromQueue : Model -> Model
+removeHeadFromQueue model = {model | queue = tailSafe model.queue}
 
 -------- Funciones Listas --------
 
