@@ -4,6 +4,9 @@ import Types exposing(Song)
 import Utils exposing (..)
 import Models exposing (Model)
 
+import List exposing (filter, map)
+import String exposing (contains, toUpper)
+
 -- Existe la funcion findSong que recibe
 -- una condicion y una lista de canciones
 -- findSong : (Song -> Bool) -> List Song -> Song
