@@ -26,14 +26,14 @@ urlById : String -> List Song -> String
 urlById id songs = (findById id songs).url
 
 findById : String -> List Song -> Song
-findById id = findSong(idMatchs id)
+findById id = findSong (idMatchs id)
 
 idMatchs : String -> Song -> Bool
 idMatchs id song = id == song.id
 
 -- Debería darnos las canciones que tengan ese texto en nombre o artista
 filterByName : String -> List Song -> List Song
-filterByName text = filter(textMatchs text)
+filterByName text = filter (textMatchs text)
 
 textMatchs : String -> Song -> Bool
 textMatchs text song = containsText text song.name || containsText text song.artist
@@ -44,7 +44,7 @@ containsText text text2 = contains (toUpper text) (toUpper text2)
 -- Recibe un id y tiene que likear/dislikear una cancion
 -- switchear song.liked
 toggleLike : String -> List Song -> List Song
-toggleLike id songs = map(likeById id) songs
+toggleLike id = map (likeById id)
 
 likeById : String -> Song -> Song
 likeById id song = if idMatchs id song then swapeLike song else song
@@ -67,7 +67,7 @@ isLiked song = song.liked
 -- Recibe una lista de canciones y nos quedamos solo con las que
 -- tienen un like
 filterLiked : List Song -> List Song
-filterLiked = filter(isLiked) 
+filterLiked = filter isLiked
 
 -- Agrega una cancion a la cola de reproduccion
 -- (NO es necesario preocuparse porque este una sola vez)
