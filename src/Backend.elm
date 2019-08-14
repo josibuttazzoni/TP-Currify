@@ -33,7 +33,7 @@ idMatchs id song = id == song.id
 
 -- Debería darnos las canciones que tengan ese texto en nombre o artista
 filterByName : String -> List Song -> List Song
-filterByName text = filter (textMatchs text)
+filterByName text = filter (textMatches text)
 
 textMatches : String -> Song -> Bool
 textMatches text song = any (containsText text) [ song.name, song.artist ]
