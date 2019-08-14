@@ -4,7 +4,7 @@ import Types exposing(Song)
 import Utils exposing (..)
 import Models exposing (Model)
 
-import List exposing (filter, map)
+import List exposing (filter, map, any)
 import String exposing (contains, toUpper)
 
 -- Existe la funcion findSong que recibe
@@ -35,8 +35,8 @@ idMatchs id song = id == song.id
 filterByName : String -> List Song -> List Song
 filterByName text = filter (textMatchs text)
 
-textMatchs : String -> Song -> Bool
-textMatchs text song = containsText text song.name || containsText text song.artist
+textMatches : String -> Song -> Bool
+textMatches text song = any (containsText text) [ song.name, song.artist ]
 
 containsText : String -> String -> Bool
 containsText text text2 = contains (toUpper text) (toUpper text2)
